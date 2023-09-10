@@ -6,7 +6,9 @@ public class Practise3 {
 
     public int sumsSquares(List<Integer> numbers) {
         // TODO: implement method that accepts list of integers and returns sum of their squares.
+       return numbers.stream()
+               .reduce(0,(integer, integer2) -> integer+integer2*integer2);
 
-        return 0;
+
     }
 }

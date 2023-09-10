@@ -17,6 +17,14 @@ public class Practise7 {
         // TODO: return true if there is no such payment in that range.
         // TODO: return true if reconciliation completed for all of them, else false.
 
-        return false;
+        List<Payment> paymentsInRange =  payments.stream()
+                .filter(payment -> payment.getCreatedDate()>=startDate && payment.getCreatedDate()<=endDate)
+                .toList();
+        if ( paymentsInRange.isEmpty()) {
+            return true;
+        }
+        return paymentsInRange.stream()
+                .allMatch(payment -> payment.isReconciliationCompleted());
+
     }
 }
